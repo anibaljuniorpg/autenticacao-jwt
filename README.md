@@ -35,13 +35,13 @@ Este projeto implementa um sistema de autenticação e autorização utilizando 
 
 ## Endpoints Principais
 
-- POST /auth/login - Login na aplicação.
-- POST /auth/register - Registrar um novo usuário na aplicação.
+- POST api/auth/login - Login na aplicação.
+- POST api/auth/register - Registrar um novo usuário na aplicação.
 
 ### Autenticação
 
-- `POST /auth/register` - Registra um novo usuário
-- `POST /auth/login` - Autentica o usuário e retorna um JWT
+- `POST api/auth/register` - Registra um novo usuário
+- `POST api/auth/login` - Autentica o usuário e retorna um JWT
 
 
 ## Autores
