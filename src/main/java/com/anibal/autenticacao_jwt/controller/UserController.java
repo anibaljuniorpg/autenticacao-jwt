@@ -2,7 +2,6 @@ package com.anibal.autenticacao_jwt.controller;
 
 import com.anibal.autenticacao_jwt.dtos.AuthRequestDTO;
 import com.anibal.autenticacao_jwt.dtos.AuthResponseDTO;
-import com.anibal.autenticacao_jwt.dtos.RegisterRequestDTO;
 import com.anibal.autenticacao_jwt.service.TokenService;
 import com.anibal.autenticacao_jwt.service.UserService;
 import jakarta.validation.Valid;

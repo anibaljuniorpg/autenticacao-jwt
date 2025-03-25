@@ -3,7 +3,6 @@ package com.anibal.autenticacao_jwt.service;
 import com.anibal.autenticacao_jwt.configuration.SecurityConfiguration;
 import com.anibal.autenticacao_jwt.dtos.AuthRequestDTO;
 import com.anibal.autenticacao_jwt.dtos.AuthResponseDTO;
-import com.anibal.autenticacao_jwt.dtos.RegisterRequestDTO;
 import com.anibal.autenticacao_jwt.entity.User;
 import com.anibal.autenticacao_jwt.entity.UserRole;
 import com.anibal.autenticacao_jwt.repository.UserRepository;
@@ -18,20 +17,18 @@ public class UserService {
     @Autowired
     private UserRepository repository;
     @Autowired
-    private  TokenService tokenService;
-    @Autowired
-    private SecurityConfiguration securityConfiguration;
+    private TokenService tokenService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
 
     public AuthResponseDTO login(AuthRequestDTO requestDTO){
-        User user = this.repository.findByLogin(requestDTO.login()).orElseThrow(() -> new RuntimeException("User not found"));
+        User user = this.repository.findByLogin(requestDTO.login()).orElseThrow(() -> new RuntimeException("Login não encontrado. Verifique suas credenciais e tente novamente."));
         if (passwordEncoder.matches(requestDTO.password(), user.getPassword())){
             String token = this.tokenService.generateToken(user);
             return new AuthResponseDTO(user.getUsername(), token);
         }
-        throw  new RuntimeException("User not found");
+        throw  new RuntimeException("Senha incorreta. Tente novamente.");
     }
 
     public AuthResponseDTO register(AuthRequestDTO requestDTO){
@@ -43,7 +40,7 @@ public class UserService {
             String token = this.tokenService.generateToken(newUser);
             return new AuthResponseDTO(newUser.getUsername(), token);
         }
-        throw  new RuntimeException("User existing");
+        throw  new RuntimeException("Já existe um usuário com este login. Tente um login diferente.");
     }
 
 }

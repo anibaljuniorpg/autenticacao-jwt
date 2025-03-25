@@ -1,13 +1,11 @@
 package com.anibal.autenticacao_jwt.entity;
 
-import com.anibal.autenticacao_jwt.dtos.AuthRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 

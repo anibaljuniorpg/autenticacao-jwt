@@ -45,13 +45,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         filterChain.doFilter(request,response);
     }
 
-    /*private String recoverToken(HttpServletRequest request){
-        var authHeader = request.getHeader("Authorization");
-        if(authHeader == null){
-            return authHeader.replace("Bearer ", "");
-        }
-        return null;
-    }*/
+   
 
     private String recoverToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
@@ -59,7 +53,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             logger.info("Token recebido");
             return authHeader.substring(7); // Retorna o token sem o "Bearer "
         }
-        logger.warn("Token JWT nao envaido ou mal formatado");
+        logger.warn("Token JWT não envaido ou mal formatado");
         return null; // Retorna null se o cabeçalho não estiver presente ou não estiver no formato esperado
     }
 
