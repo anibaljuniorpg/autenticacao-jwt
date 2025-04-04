@@ -8,7 +8,7 @@ Este projeto implementa um sistema de autenticação e autorização utilizando 
 - Spring Boot
 - Spring Security
 - JWT (JSON Web Token)
-- Banco de Dados (MySQL/PostgreSQL/H2, conforme necessidade)
+- Banco de Dados (H2)
 - JPA/Hibernate
 - Lombok
 - Maven
